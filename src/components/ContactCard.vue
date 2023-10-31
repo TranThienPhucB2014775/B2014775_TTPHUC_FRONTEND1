@@ -8,7 +8,6 @@
 
 <template>
     <div>
-        <h1>abc</h1>
         <div class="p-1">
             <strong>Tên:</strong>
                 {{ contact.name }}

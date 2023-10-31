@@ -14,10 +14,14 @@
                 <button class="btn btn-sm btn-primary" @click="refreshList()">
                     <i class="fas fa-redo"></i> Làm mới
                 </button>
-                <button class="btn btn-sm btn-success" @click="goToAddContact">
+                <router-link :to="{
+                    name: 'contact.add',
+                }">
+                <button class="btn btn-sm btn-success" >
                     <i class="fas fa-plus"></i> Thêm mới
                 </button>
-                <button class="btn btn-sm btn-danger" @click="removeAllContacts">
+                </router-link>
+                <button class="btn btn-sm btn-danger" @click="removeAllContacts()">
                     <i class="fas fa-trash"></i> Xóa tất cả
                 </button>
             </div>
@@ -110,9 +114,6 @@ export default {
                     console.log(error);
                 }
             }
-        },
-        goToAddContact() {
-            this.$router.push({ name: "contact.add" });
         },
     },
     mounted() {

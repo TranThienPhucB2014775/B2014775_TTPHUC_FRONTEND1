@@ -13,13 +13,17 @@ class ContactService {
         return (await this.api.delete("/")).data;
     }
     async get(id) {
-        return (await this.api.get(`/${id}`)).data;
+        return (await this.api.get(`/id/?id=${id}`)).data;
     }
     async update(id, data) {
-        return (await this.api.put(`/${id}`, data)).data;
+        return (await this.api.put(`/id/?id=${id}`, data)).data;
+    }
+    async add(data) {
+        console.log(data)
+        return (await this.api.post(`/` , data)).data;
     }
     async delete(id) {
-        return (await this.api.delete(`/${id}`)).data;
+        return (await this.api.delete(`/id/?id=${id}`)).data;
     }
 }
 

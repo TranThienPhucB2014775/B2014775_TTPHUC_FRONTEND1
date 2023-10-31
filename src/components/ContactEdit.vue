@@ -6,8 +6,8 @@
     </div>
 </template>
 <script>
-import ContactForm from "@/components/ContactForm.vue";
-import ContactService from "@/services/contact.service";
+import ContactForm from "./ContactForm.vue";
+import ContactService from "../services/contact.service";
 export default {
     components: {
         ContactForm,
@@ -17,14 +17,15 @@ export default {
     },
     data() {
         return {
-            contact: null,
+            contact: this.contact,
             message: "",
         };
     },
     methods: {
         async getContact(id) {
             try {
-                this.contact = await ContactService.get(id);
+                this.contact = await ContactService.get(id);   
+                // console.log(this.contact)
             } catch (error) {
                 console.log(error);
                 // Chuyển sang trang NotFound đồng thời giữ cho URL không đổi
@@ -40,6 +41,7 @@ export default {
         },
         async updateContact(data) {
             try {
+                // console.log(data)
                 await ContactService.update(this.contact._id, data);
                 this.message = "Liên hệ được cập nhật thành công.";
             } catch (error) {

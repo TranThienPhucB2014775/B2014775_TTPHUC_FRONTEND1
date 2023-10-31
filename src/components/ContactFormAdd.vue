@@ -41,12 +41,11 @@ export default {
         Field,
         ErrorMessage,
     },
-    emits: ["submit:contact", "delete:contact"],
+    emits: ["submit:contact"],
     props: {
         contact: { type: Object, required: true }
     },
     data() {
-        console.log(this.contact)
         const contactFormSchema = yup.object().shape({
             name: yup
                 .string()
@@ -74,14 +73,12 @@ export default {
     },
     methods: {
         submitContact() {
-            console.log(this.contactLocal)
+            // console.log(this.contactLocal);
             this.$emit("submit:contact", this.contactLocal);
-        },
-        deleteContact() {
-            this.$emit("delete:contact", this.contactLocal.id);
         },
     },
 };
+// console.log(contact);
 </script>
 <style scoped>
 @import "@/assets/form.css";
